@@ -1,4 +1,3 @@
-from decimal import Decimal
 from django.db import models
 
 
@@ -8,10 +7,6 @@ class Item(models.Model):
     barcode = models.PositiveIntegerField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     discount = models.PositiveSmallIntegerField()
-
-    @property
-    def final_price(self):
-        return self.price - self.price * Decimal(self.discount / 100)
 
 
 class Cart(models.Model):
