@@ -2,3 +2,4 @@ django~=3.2
 psycopg2>=2.5.4
 django-environ~=0.7
 djangorestframework~=3.12
+requests~=2.26
