@@ -1,0 +1,1 @@
+# shopic_test_assignment_backend
