@@ -6,7 +6,7 @@ class Item(models.Model):
     name = models.CharField(max_length=255, db_index=True)
     barcode = models.PositiveIntegerField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    discount = models.PositiveSmallIntegerField()
+    discount = models.PositiveSmallIntegerField(blank=True, null=True)
 
 
 class Cart(models.Model):
