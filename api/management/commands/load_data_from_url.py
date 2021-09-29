@@ -67,7 +67,7 @@ class Command(BaseCommand):
             cart = Cart.objects.create(
                 id=row['id'],
                 app_mode=row['app_mode'].lower().replace(' ', '_'),
-                cart_status=row['cart_status'].lower(),
+                status=row['cart_status'].lower(),
                 created_at=row['created_at']
             )
             cart.save()
