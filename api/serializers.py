@@ -24,10 +24,9 @@ class CartListSerializer(serializers.ModelSerializer):
 
 
 class CartDetailSerializer(CartListSerializer):
-    items = ItemSerializer(many=True)
+    items = ItemSerializer(many=True, read_only=True)
 
     class Meta(CartListSerializer.Meta):
         fields = CartListSerializer.Meta.fields + ('items',)
-        read_only_fields = CartListSerializer.Meta.read_only_fields + ('items',)
 
 
