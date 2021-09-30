@@ -2,3 +2,5 @@ django~=3.2
 psycopg2>=2.5.4
 django-environ~=0.7
 djangorestframework~=3.12
+django-cors-headers~=3.9
+requests~=2.26
