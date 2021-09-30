@@ -12,9 +12,9 @@ class ItemSerializer(serializers.ModelSerializer):
 
 class CartListSerializer(serializers.ModelSerializer):
     items_count = serializers.IntegerField()
-    total_price = serializers.DecimalField(decimal_places=2, max_digits=10)
-    total_price_without_discount = serializers.DecimalField(decimal_places=2, max_digits=10)
-    total_discount = serializers.DecimalField(decimal_places=2, max_digits=10)
+    total_price = serializers.DecimalField(decimal_places=2, max_digits=10, coerce_to_string=False)
+    total_price_without_discount = serializers.DecimalField(decimal_places=2, max_digits=10, coerce_to_string=False)
+    total_discount = serializers.DecimalField(decimal_places=2, max_digits=10, coerce_to_string=False)
 
     class Meta:
         model = Cart
