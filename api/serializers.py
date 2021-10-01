@@ -4,6 +4,7 @@ from .models import Item, Cart
 
 
 class ItemSerializer(serializers.ModelSerializer):
+    price = serializers.DecimalField(decimal_places=2, max_digits=10, coerce_to_string=False)
 
     class Meta:
         model = Item
