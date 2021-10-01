@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -20,9 +21,16 @@ class LoginView(APIView):
     def post(self, request):
         username = request.data.get('username')
         password = request.data.get('password')
-        if username is None or password is None:
+        if not username or not password:
             return Response(
-                {"detail": "Please enter both username and password"},
+                {"general": "Please enter both username and password"},
+                status=400
+            )
+        try:
+            User.objects.get(username=username)
+        except User.DoesNotExist:
+            return Response(
+                {"username": "The username is incorrect"},
                 status=400
             )
         user = authenticate(username=username, password=password)
@@ -30,7 +38,7 @@ class LoginView(APIView):
             login(request, user)
             return Response({"detail": "Success"})
         return Response(
-            {"detail": "Invalid credentials"},
+            {"password": "The password is incorrect"},
             status=400,
         )
 
